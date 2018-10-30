@@ -11,6 +11,7 @@ function Show() {
   this.DoorIncomeTotal = 0;
   this.BarIncomeTotal = 0;
   this.ShowDate;
+  this.bandList = [];
 }
 
 var settledShowList = [];
