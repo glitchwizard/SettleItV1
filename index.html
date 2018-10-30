@@ -1,16 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
-    <script type="text/javascript" src="js/scripts.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <div class="jumbotron">
-      Test jumbotron
+
+<head>
+  <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="js/scripts.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="utf-8">
+  <title>SettleIt</title>
+</head>
+
+<body>
+  <div class="jumbotron">
+    SettleIt: Tu Musica, Tu Dinero
+  </div>
+  <div class="container">
+    <div id="band-contacts">
+      <h2>Band Name & Main Contact</h2>
+      <form id="band-contact">
+        <div class="form-group">
+          <label for="new-band">Band's name:</label>
+          <input type="text" id="new-band">
+        </div>
+        <form id="contact-name">
+          <div class="form-group">
+            <label for="contact-name">Main contact:</label>
+            <input type="text" id="contact-name">
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Main contact's email address:</label>
+            <input type="text" id="contact-email">
+          </div>
+          <label for="contact-phone">Main contact's phone number:</label>
+          <input type="text" id="contact-phone">
     </div>
-  </body>
+    <button type="submit" class="btn btn-default btn-info">Add band</button>
+    </form>
+  </div>
+</body>
+
 </html>

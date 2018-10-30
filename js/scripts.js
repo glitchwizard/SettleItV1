@@ -18,6 +18,7 @@ var settledShowList = [];
 var bands = [];
 
 //UI Logic
-$("Document").ready(function(){
+$("Document").ready(function() {
+  
 
 })
