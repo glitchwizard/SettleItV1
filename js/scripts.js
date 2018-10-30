@@ -28,10 +28,10 @@ var addShow = function(doorIncome, barIncome, date) {
 };
 
 var addBandToShow = function(band, date){
-    
+    Add change --- 
 }
 
-//UI Logic
+ //UI Logic
 $("Document").ready(function(){
 
 });
