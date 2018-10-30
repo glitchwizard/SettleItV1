@@ -34,6 +34,9 @@ var addBandToShow = function(band, date){
 $("Document").ready(function() {
   $("form#band-contact").submit(function(event){
     event.preventDefault();
-  })
+    var bandNameInput = $("input#new-band").val();
+    var mainContactFirstNameInput = $("input#contact-Firstname").val();
+    var mainContactLastNameInput = $("input#contact-Lastname").val();
+  });
 
 });
