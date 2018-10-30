@@ -28,10 +28,12 @@ var addShow = function(doorIncome, barIncome, date) {
 };
 
 var addBandToShow = function(band, date){
-    Add change --- 
 }
 
- //UI Logic
-$("Document").ready(function(){
+//UI Logic
+$("Document").ready(function() {
+  $("form#band-contact").submit(function(event){
+    event.preventDefault();
+  })
 
 });
