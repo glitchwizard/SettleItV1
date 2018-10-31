@@ -41,6 +41,32 @@
     <button type="submit" class="btn btn-default btn-info">Add band</button>
     </form>
   </div>
+  <div class="container">
+    <div id="Show Input">
+      <h3>Show Info</h3>
+      <form id="show-info">
+        <div class="form-group">
+          <label for="show-date">Show Date:</label>
+          <input type="date" id="show-date">
+        </div>
+        <form id="contact-name">
+          <div class="form-group">
+            <label for="bandListForShow">Bands to Add:</label>
+            <span id="bandListForShow"></span>
+          </div>
+          <div class="form-group">
+            <label for="show-type">What type of show is it?:</label><br>
+            <input type="radio" id="show-type" value="guarantee"> Guarantee<br>
+            <input type="radio" id="show-type" value="split"> Door Split<br>
+          </div>
+          <div class="form-group">
+            <label for="contact-email">What's the split per band:</label>
+            <input type="email" id="contact-email">
+          </div>
+    </div>
+    <button type="submit" class="btn btn-default btn-info">Add Show</button>
+    </form>
+  </div>
 </body>
 
 </html>
