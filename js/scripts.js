@@ -38,6 +38,7 @@ Show.prototype.NewShow () {
 
 
 var addBandToShow = function(band, date){
+
 }
 
 //UI Logic
@@ -48,5 +49,10 @@ $("Document").ready(function() {
     var mainContactFirstNameInput = $("input#contact-Firstname").val();
     var mainContactLastNameInput = $("input#contact-Lastname").val();
   });
+
+  $("form#show-info").submit(function() {
+    event.preventDefault();
+    var showDateInput = $("")
+  }
 
 });
