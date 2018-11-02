@@ -7,6 +7,8 @@ function Band(bandName, addMainContactFirstName, addMainContactLastName, email, 
   this.BandPhone = phone;
 };
 
+// Next don't we need
+
 function Show(doorIncome,showIncome,showDate) {
   this.DoorIncomeTotal = doorIncome;
   this.BarIncomeTotal = showIncome;
@@ -35,8 +37,8 @@ $("Document").ready(function() {
   $("form#band-contact").submit(function(event){
     event.preventDefault();
     var bandNameInput = $("input#new-band").val();
-    var mainContactFirstNameInput = $("input#contact-Firstname").val();
-    var mainContactLastNameInput = $("input#contact-Lastname").val();
+    var mainContactFirstNameInput = $("input#contact-firstName").val();
+    var mainContactLastNameInput = $("input#contact-lastName").val();
   });
 
 });
