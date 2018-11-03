@@ -86,20 +86,20 @@ $("Document").ready(function() {
     // shall i add bandlist, type, split?
   });
   // same plan for making shows appear:
-  // var dispayShows = function() {
-  //   $("#").empty();
-  //   settledShowList.forEach(function(band) {
-  //
-  //     $("#all-bands").append(
-  //       '<div class="band-list">' +
-  //       '<b>' + band.BandName + '</b><br>' +
-  //       band.BandMainContactFirstName + ' ' +
-  //       band.BandMainContactLastName + ', ' +
-  //       band.BandEmail + ', ' +
-  //       band.BandPhone +
-  //       '</div>'
-  //     );
-  //   });
-  // }
+  var dispayShows = function() {
+    $("#").empty();
+    settledShowList.forEach(function(band) {
+  
+      $("#all-bands").append(
+        '<div class="band-list">' +
+        '<b>' + band.BandName + '</b><br>' +
+        band.BandMainContactFirstName + ' ' +
+        band.BandMainContactLastName + ', ' +
+        band.BandEmail + ', ' +
+        band.BandPhone +
+        '</div>'
+      );
+    });
+  }
   // end of display shows
 });
