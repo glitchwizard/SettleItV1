@@ -12,7 +12,7 @@ function Show(showDate) {
   this.BarIncomeTotal = barIncome; // how much total income from the Bar
   this.ShowDate = showDate; // what is the date the show will happen?
   this.BandList = []; // this is the list of bands that will be on the show
-  this.ShowType;  // is it a guaranteed payout, or a split between the house and bands?
+  this.ShowType; // is it a guaranteed payout, or a split between the house and bands?
   this.BandSplit = []; // An array representing the split for each band. 
   this.showIncomeTotal = 0; // this is the sum of all income the show made (Bar and Door)
 }
@@ -20,39 +20,40 @@ function Show(showDate) {
 var settledShowList = []; // this is the list of shows that have been settled, each item in the array should be a Show object.
 var bands = []; // This is the overall list of bands that have been entered. 
 
-var addBand = function(addBandName, addMainContactFirstName,addMainContactLastName, addEmail, addPhone){
-    var newBand = new Band(addBandName, addMainContactFirstName, addMainContactLastName, addEmail, addPhone);
-    return bands.push(newBand);
+var addBand = function (addBandName, addMainContactFirstName, addMainContactLastName, addEmail, addPhone) {
+  var newBand = new Band(addBandName, addMainContactFirstName, addMainContactLastName, addEmail, addPhone);
+  return bands.push(newBand);
 }; // this function will add new bands to the bands list
 
-var addShow = function(date) {
+var addShow = function (date) {
   var newShow = new Show(date)
-  return  settledShowList.push(newShow);
+  return settledShowList.push(newShow);
 }; // this function will add new shows to the settled show list
 
-Show.prototype.NewShow () {
+Show.prototype.NewShow = () {
   // this will update a show that's been created
+  return console.log("New Show prototype worked.");
 
 };
 
 
 
-var addBandToShow = function(band, date){
+var addBandToShow = function (band, date) {
 
 }
 
 //UI Logic
-$("Document").ready(function() {
-  $("form#band-contact").submit(function(event){
-    event.preventDefault();
-    var bandNameInput = $("input#new-band").val();
-    var mainContactFirstNameInput = $("input#contact-Firstname").val();
-    var mainContactLastNameInput = $("input#contact-Lastname").val();
-  });
+$("Document").ready(function () {
+      $("form#band-contact").submit(function (event) {
+        event.preventDefault();
+        var bandNameInput = $("input#new-band").val();
+        var mainContactFirstNameInput = $("input#contact-Firstname").val();
+        var mainContactLastNameInput = $("input#contact-Lastname").val();
+      });
 
-  $("form#show-info").submit(function() {
-    event.preventDefault();
-    var showDateInput = $("")
-  }
+      $("form#show-info").submit(function () {
+          event.preventDefault();
+          var showDateInput = $("")
+        }
 
-});
+      });
