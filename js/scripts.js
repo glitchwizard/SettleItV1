@@ -8,12 +8,12 @@ function Band(bandName, addMainContactFirstName, addMainContactLastName, email, 
 };
 
 
-function Show(doorIncome,showIncome,showDate) {
+function Show(doorIncome, showIncome, showDate) {
   this.DoorIncomeTotal = doorIncome;
   this.BarIncomeTotal = showIncome;
   this.ShowDate = showDate;
   this.BandList = [];
-  this.ShowType;  // is it a guaranteed payout, or a split between the house and bands?
+  this.ShowType; // is it a guaranteed payout, or a split between the house and bands?
   this.BandSplit = []; // An array representing the split for each band.
   this.showIncomeTotal = 0; // this is the sum of all income the show made (Bar and Door)
 }
@@ -21,14 +21,17 @@ function Show(doorIncome,showIncome,showDate) {
 var settledShowList = []; // this is the list of shows that have been settled, each item in the array should be a Show object.
 var bands = []; // This is the overall list of bands that have been entered.
 
-var addBand = function(addBandName, addMainContactFirstName,addMainContactLastName, addEmail, addPhone){
-    var newBand = new Band(addBandName, addMainContactFirstName, addMainContactLastName, addEmail, addPhone);
-    return bands.push(newBand);
+var addBand = function(addBandName, addMainContactFirstName, addMainContactLastName, addEmail, addPhone) {
+  var newBand = new Band(addBandName, addMainContactFirstName, addMainContactLastName, addEmail, addPhone);
+  return bands.push(newBand);
 }; // this function will add new bands to the bands list
+
+
+
 
 var addShow = function(date) {
   var newShow = new Show(date)
-  return  settledShowList.push(newShow);
+  return settledShowList.push(newShow);
 }; // this function will add new shows to the settled show list
 
 Show.prototype.NewShow = function() {
@@ -38,19 +41,39 @@ Show.prototype.NewShow = function() {
 
 
 
-var addBandToShow = function(band, date){
+var addBandToShow = function(band, date) {
 
 }
 
 //UI Logic
 $("Document").ready(function() {
-  $("form#band-contact").submit(function(event){
+  $("form#band-contact").submit(function(event) {
     event.preventDefault();
     var bandNameInput = $("input#new-band").val();
-    var mainContactFirstNameInput = $("input#contact-firstName").val();
-    var mainContactLastNameInput = $("input#contact-lastName").val();
-  });
+    var firstNameInput = $("input#contact-firstName").val();
+    var lastNameInput = $("input#contact-lastName").val();
+    var emailInput = $("input#contact-email").val();
+    var phoneInput = $("input#contact-phone").val();
+    addBand(bandNameInput, firstNameInput, lastNameInput, emailInput, phoneInput);
 
+    showBands();
+
+  });
+  var showBands = function() {
+    $("#all-bands").empty();
+    bands.forEach(function(band) {
+
+      $("#all-bands").append(
+        '<div class="band-list">' +
+        '<b>' + band.BandName + '</b><br>' +
+        band.BandMainContactFirstName + ' ' +
+        band.BandMainContactLastName + ', ' +
+        band.BandEmail + ', ' +
+        band.BandPhone +
+        '</div>'
+      );
+    });
+  }
   $("form#show-info").submit(function() {
     event.preventDefault();
     var showDateInput = $("")

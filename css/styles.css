@@ -4,8 +4,20 @@
   font-family: verdana;
   align-items: center;
 }
+h1 {
+  text-align: center;
+}
 h5 {
-
   color: #00FFFF;
-
+  font-style: italic;
+  
+}
+h3 {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.band-list {
+  border-bottom: solid 1px #00FFFF;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
 }
