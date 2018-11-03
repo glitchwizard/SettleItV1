@@ -28,7 +28,7 @@ var addBand = function(addBandName, addMainContactFirstName, addMainContactLastN
 
 
 
-
+// add arguments after date?
 var addShow = function(date) {
   var newShow = new Show(date)
   return settledShowList.push(newShow);
@@ -59,6 +59,7 @@ $("Document").ready(function() {
     showBands();
 
   });
+
   var showBands = function() {
     $("#all-bands").empty();
     bands.forEach(function(band) {
@@ -74,9 +75,31 @@ $("Document").ready(function() {
       );
     });
   }
-  $("form#show-info").submit(function() {
-    event.preventDefault();
-    var showDateInput = $("")
-  });
 
+  $("form#show-info").submit(function(event) {
+    event.preventDefault();
+    var showDateInput = $("input#show-date").val();
+    var showBandList = $("input#bandListForShow").val();
+    var showType = $("input#show-type").val();
+    var showSplit = $("input#split").val();
+    addShow(showDateInput);
+    // shall i add bandlist, type, split?
+  });
+  // same plan for making shows appear:
+  // var dispayShows = function() {
+  //   $("#").empty();
+  //   settledShowList.forEach(function(band) {
+  //
+  //     $("#all-bands").append(
+  //       '<div class="band-list">' +
+  //       '<b>' + band.BandName + '</b><br>' +
+  //       band.BandMainContactFirstName + ' ' +
+  //       band.BandMainContactLastName + ', ' +
+  //       band.BandEmail + ', ' +
+  //       band.BandPhone +
+  //       '</div>'
+  //     );
+  //   });
+  // }
+  // end of display shows
 });
