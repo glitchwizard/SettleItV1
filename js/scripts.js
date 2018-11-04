@@ -60,14 +60,15 @@ $("Document").ready(function() {
 
   });
 
-  var showBands = function() {
+  var showBands = function() { // this function will add the bands to the DOM
     $("#all-bands").empty();
     var totalNumberOfBandsInAddressBook = 0;
+
     bands.forEach(function(band) {
       totalNumberOfBandsInAddressBook++;
       $("#all-bands").append(
         '<div class="band-list">' + "<div class='row'>" + "<div class='col.md-2'>" 
-        + "<input type='checkbox'  id='Band" + 
+        + "<input type='checkbox' class='BandContactCheckbox' id='" + 
         totalNumberOfBandsInAddressBook + "'></input></div>" + 
         '<div class="col-md-10"><b>' + band.BandName + '</b><br>' +
         band.BandMainContactFirstName + ' ' +
@@ -76,8 +77,17 @@ $("Document").ready(function() {
         band.BandPhone +
         '</div>' + '</div>' + '</div>'
       );
+
     });
   }
+
+  $('form#all-bands-form').click(function(event) { // this function will display the bands in the "Bands to Add" section dynamically with the checkboxes turned on or off
+    $("input:checkbox[class=BandContactCheckbox]:checked").each(function(band) {
+      debugger;
+      var bandID = $("input:checkbox[class=BandContactCheckbox]:checked").getAttribute('id').val();
+      $('span#bandListForShow').text('<li>' + bands[bandID].bandName + ' test1' + '</li>')
+    });
+  });
 
   $("form#show-info").submit(function(event) {
     event.preventDefault();
@@ -88,7 +98,10 @@ $("Document").ready(function() {
     addShow(showDateInput);
     // shall i add bandlist, type, split?
   });
+
+
   // same plan for making shows appear:
+
   var dispayShows = function() {
     $("#").empty();
     settledShowList.forEach(function(band) {
