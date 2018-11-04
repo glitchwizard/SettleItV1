@@ -18,7 +18,7 @@ h3 {
 }
 .band-list {
   border-bottom: solid 1px #00FFFF;
-  margin-right: 20%;
+  /*margin-right: 10%;*/
   padding-bottom: 6px;
   margin-bottom: 12px;
 }
@@ -26,3 +26,4 @@ h3 {
   width: 35%;
   margin: 12px;
 }
+

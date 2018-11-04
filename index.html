@@ -16,7 +16,8 @@
   </div>
 
   <div class="container"><br>
-    <h5>SettleIt will help you settle accounts efficiently with venues & band members, get what's coming to you, & spend the time you save creating more music!</h5><br>
+    <h5>SettleIt will help you settle accounts efficiently with venues & band members, get what's coming to you, &
+      spend the time you save creating more music!</h5><br>
     <div class="row">
       <div class="col-md-12">
         <h3>Band name & main contact deets:</h3><br>
@@ -32,28 +33,30 @@
               <label for="new-band">Band's name:</label>
               <input type="text" id="new-band">
             </div>
-              <div class="form-group">
-                <label for="contact-firstName">Main contact first name:</label>
-                <input type="text" id="contact-firstName">
-              </div>
-              <div class="form-group">
-                <label for="contact-lastName">Main contact last name:</label>
-                <input type="text" id="contact-lastName">
-              </div>
-              <div class="form-group">
-                <label for="contact-email">Email address:</label>
-                <input type="text" id="contact-email">
-              </div>
-              <label for="contact-phone">Phone number:</label>
-              <input type="text" id="contact-phone">
+            <div class="form-group">
+              <label for="contact-firstName">Main contact first name:</label>
+              <input type="text" id="contact-firstName">
+            </div>
+            <div class="form-group">
+              <label for="contact-lastName">Main contact last name:</label>
+              <input type="text" id="contact-lastName">
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email address:</label>
+              <input type="text" id="contact-email">
+            </div>
+            <label for="contact-phone">Phone number:</label>
+            <input type="text" id="contact-phone">
         </div><br>
         <button type="submit" class="btn btn-default btn-info">Add band</button>
         </form>
       </div>
+      <form id="all-bands-form">
+      <div class="col-md-12" id="all-bands">
 
-      <div class="col-md-6" id="all-bands">
 
       </div>
+      </form>
     </div>
     <div class="container">
       <div id="Show-Input">
@@ -69,8 +72,8 @@
           </div>
           <div class="form-group">
             <label for="show-type">Which type of show is it?</label><br>
-            <input type="radio" id="show-type" value="guarantee"> Guarantee<br>
-            <input type="radio" id="show-type" value="split"> Door split<br>
+            <input type="radio" name="show-type" id="show-type" value="guarantee"> Guarantee<br>
+            <input type="radio" name="show-type" id="show-type" value="split"> Door split<br>
           </div>
           <div class="form-group">
             <label for="split">What's the split per band?</label>
@@ -78,6 +81,9 @@
           </div>
           <button type="submit" class="btn btn-default btn-info">Add show</button>
         </form>
+      </div>
+      <div class="all-shows">
+
       </div>
     </div>
   </div>
