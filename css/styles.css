@@ -1,0 +1,28 @@
+.jumbotron {
+  font-weight: bold;
+  font-style: italic;
+  font-family: verdana;
+  align-items: center;
+}
+h1 {
+  text-align: center;
+}
+h5 {
+  color: #00FFFF;
+  font-style: italic;
+
+}
+h3 {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.band-list {
+  border-bottom: solid 1px #00FFFF;
+  margin-right: 20%;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+#band-contact label {
+  width: 35%;
+  margin: 12px;
+}

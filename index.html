@@ -12,58 +12,73 @@
 
 <body>
   <div class="jumbotron">
-    SettleIt: Tu Musica, Tu Dinero
+    <h1>SettleIt: Tu Musica, Tu Dinero</h1>
   </div>
-  <div class="container">
-    <div id="band-contacts">
-      <h3>Band Name & Main Contact</h3>
-      <form id="band-contact">
-        <div class="form-group">
-          <label for="new-band">Band's name:</label>
-          <input type="text" id="new-band">
-        </div>
-        <form id="contact-name">
-          <div class="form-group">
-            <label for="contact-name">Main contact first name:</label>
-            <input type="text" id="contact-Firstname">
-          </div>
-          <div class="form-group">
-            <label for="contact-name">Main contact last name:</label>
-            <input type="text" id="contact-Lastname">
-          </div>
-          <div class="form-group">
-            <label for="contact-email">Band email address:</label>
-            <input type="text" id="contact-email">
-          </div>
-          <label for="contact-phone">Main contact's phone number:</label>
-          <input type="text" id="contact-phone">
+
+  <div class="container"><br>
+    <h5>SettleIt will help you settle accounts efficiently with venues & band members, get what's coming to you, & spend the time you save creating more music!</h5><br>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Band name & main contact deets:</h3><br>
+      </div>
     </div>
-    <button type="submit" class="btn btn-default btn-info">Add band</button>
-    </form>
-  </div>
-  <div class="container">
-    <div id="Show Input">
-      <h3>Show Info</h3>
-      <form id="show-info">
-        <div class="form-group">
-          <label for="show-date">Show Date:</label>
-          <input type="date" id="show-date">
-        </div>
-        <div class="form-group">
-          <label for="bandListForShow">Bands to Add:</label>
-          <span id="bandListForShow"></span>
-        </div>
-        <div class="form-group">
-          <label for="show-type">What type of show is it?:</label><br>
-          <input type="radio" id="show-type" value="guarantee"> Guarantee<br>
-          <input type="radio" id="show-type" value="split"> Door Split<br>
-        </div>
-        <div class="form-group">
-          <label for="contact-email">What's the split per band:</label>
-          <input type="email" id="contact-email">
-        </div>
-        <button type="submit" class="btn btn-default btn-info">Add Show</button>
-      </form>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div id="band-contacts">
+
+          <form id="band-contact">
+            <div class="form-group">
+              <label for="new-band">Band's name:</label>
+              <input type="text" id="new-band">
+            </div>
+              <div class="form-group">
+                <label for="contact-firstName">Main contact first name:</label>
+                <input type="text" id="contact-firstName">
+              </div>
+              <div class="form-group">
+                <label for="contact-lastName">Main contact last name:</label>
+                <input type="text" id="contact-lastName">
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email address:</label>
+                <input type="text" id="contact-email">
+              </div>
+              <label for="contact-phone">Phone number:</label>
+              <input type="text" id="contact-phone">
+        </div><br>
+        <button type="submit" class="btn btn-default btn-info">Add band</button>
+        </form>
+      </div>
+
+      <div class="col-md-6" id="all-bands">
+
+      </div>
+    </div>
+    <div class="container">
+      <div id="Show-Input">
+        <h3>Show information:</h3>
+        <form id="show-info">
+          <div class="form-group">
+            <label for="show-date">Show date:</label>
+            <input type="date" id="show-date">
+          </div>
+          <div class="form-group">
+            <label for="bandListForShow">Bands to add:</label>
+            <span id="bandListForShow"></span>
+          </div>
+          <div class="form-group">
+            <label for="show-type">Which type of show is it?</label><br>
+            <input type="radio" id="show-type" value="guarantee"> Guarantee<br>
+            <input type="radio" id="show-type" value="split"> Door split<br>
+          </div>
+          <div class="form-group">
+            <label for="split">What's the split per band?</label>
+            <input type="text" id="split">
+          </div>
+          <button type="submit" class="btn btn-default btn-info">Add show</button>
+        </form>
+      </div>
     </div>
   </div>
 </body>
