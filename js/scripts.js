@@ -66,13 +66,21 @@ $("Document").ready(function() {
 
       $("#all-bands").append(
         '<div class="band-list">' +
+        // add checkboxes here; change listeners don't exist til there are bands.
+        '<input type="checkbox">' +
         '<b>' + band.BandName + '</b><br>' +
         band.BandMainContactFirstName + ' ' +
         band.BandMainContactLastName + ', ' +
         band.BandEmail + ', ' +
         band.BandPhone +
         '</div>'
-      );
+      )
+      $("#all-bands input[type=checkbox]")
+        .off("click")
+        .click(function(event) {
+          console.log("hola");
+        });
+
     });
   }
 
