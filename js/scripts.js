@@ -15,7 +15,7 @@ function Show(showDate) {
   this.ShowType; // is it a guaranteed payout, or a split between the house and bands?
   this.BandSplit = []; // An array representing the split for each band.
   this.showIncomeTotal = 0; // this is the sum of all income the show made (Bar and Door)
-  this.totalNumberOfBandsInShow = this.BandList.length();
+  this.totalNumberOfBandsInShow = this.BandList.length;
 }
 
 var settledShowList = []; // this is the list of shows that have been settled, each item in the array should be a Show object.
@@ -78,11 +78,7 @@ $("Document").ready(function() {
           '</div>' + '</div>' + '</div>'
 
         )
-        $("#all-bands input[type=checkbox]")
-          .off("click")
-          .click(function(event) {
-            console.log("hola");
-          });
+
       });
 
 }
@@ -102,22 +98,23 @@ $("form#show-info").submit(function(event) {
   var showType = $("input#show-type").val();
   var showSplit = $("input#split").val();
   addShow(showDateInput);
-  // shall i add bandlist, type, split?
-});
+  displayShows();
 
+});
 
 // same plan for making shows appear:
 
-var dispayShows = function() {
-  $("#").empty();
-  settledShowList.forEach(function(band) {
-    $("#all-bands").append(
-      '<div class="band-list">' +
-      '<b>' + band.BandName + '</b><br>' +
-      band.BandMainContactFirstName + ' ' +
-      band.BandMainContactLastName + ', ' +
-      band.BandEmail + ', ' +
-      band.BandPhone +
+var displayShows = function() {
+  $("#all-shows").empty();
+  console.log("??")
+  settledShowList.forEach(function(show) {
+    $("#all-shows").append(
+      '<div class="show-list">' +
+      '<b>' + show.ShowDate + '</b><br>' +
+      show.BandList + ' ' +
+      show.ShowType + ', ' +
+      show.BandSplit + ', ' +
+      show.showIncomeTotal +
       '</div>'
     );
   });
