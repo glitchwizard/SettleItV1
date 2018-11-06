@@ -13,20 +13,20 @@ function Show(showDate) {
   this.ShowDate = showDate; // what is the date the show will happen?
   this.BandList = []; // this is the list of bands that will be on the show
   this.ShowType; // is it a guaranteed payout, or a split between the house and bands?
-  this.BandSplit = []; // An array representing the split for each band. 
+  this.BandSplit = []; // An array representing the split for each band.
   this.showIncomeTotal = 0; // this is the sum of all income the show made (Bar and Door)
-  this.totalNumberOfBandsInShow = this.BandList.length();
+  this.totalNumberOfBandsInShow = this.BandList.length;
 }
 
 var settledShowList = []; // this is the list of shows that have been settled, each item in the array should be a Show object.
 var bands = []; // This is the overall list of bands that have been entered.
 
-var addBand = function (addBandName, addMainContactFirstName, addMainContactLastName, addEmail, addPhone) {
+var addBand = function(addBandName, addMainContactFirstName, addMainContactLastName, addEmail, addPhone) {
   var newBand = new Band(addBandName, addMainContactFirstName, addMainContactLastName, addEmail, addPhone);
   return bands.push(newBand);
 }; // this function will add new bands to the bands list
 
-var addShow = function (date) {
+var addShow = function(date) {
   var newShow = new Show(date)
   return settledShowList.push(newShow);
 }; // this function will add new shows to the settled show list
@@ -100,24 +100,58 @@ $("Document").ready(function () {
     var showSplit = $("input#split").val();
     addShow(showDateInput);
     // shall i add bandlist, type, split?
+    bands.forEach(function(band) {
+        totalNumberOfBandsInAddressBook++;
+        $("#all-bands").append(
+          '<div class="band-list">' + "<div class='row'>" + "<div class='col.md-2'>" +
+          "<input type='checkbox' class='BandContactCheckbox' id='" +
+          totalNumberOfBandsInAddressBook + "'></input></div>" +
+          '<div class="col-md-10"><b>' + band.BandName + '</b><br>' +
+          band.BandMainContactFirstName + ' ' +
+          band.BandMainContactLastName + ', ' +
+          band.BandEmail + ', ' +
+          band.BandPhone +
+          '</div>' + '</div>' + '</div>'
+
+        )
+
+      });
+
+}
+
+$('form#all-bands-form').click(function(event) { // this function will display the bands in the "Bands to Add" section dynamically with the checkboxes turned on or off
+  $("input:checkbox[class=BandContactCheckbox]:checked").each(function(band) {
+    debugger;
+    var bandID = $("input:checkbox[class=BandContactCheckbox]:checked").getAttribute('id').val();
+    $('span#bandListForShow').text('<li>' + bands[bandID].bandName + ' test1' + '</li>')
   });
+});
 
+$("form#show-info").submit(function(event) {
+  event.preventDefault();
+  var showDateInput = $("input#show-date").val();
+  var showBandList = $("input#bandListForShow").val();
+  var showType = $("input#show-type").val();
+  var showSplit = $("input#split").val();
+  addShow(showDateInput);
+  displayShows();
 
-  // same plan for making shows appear:
+// same plan for making shows appear:
 
-  var dispayShows = function () {
-    $("#").empty();
-    settledShowList.forEach(function (band) {
-      $("#all-bands").append(
-        '<div class="band-list">' +
-        '<b>' + band.BandName + '</b><br>' +
-        band.BandMainContactFirstName + ' ' +
-        band.BandMainContactLastName + ', ' +
-        band.BandEmail + ', ' +
-        band.BandPhone +
-        '</div>'
-      );
-    });
-  }
-  // end of display shows
+var displayShows = function() {
+  $("#all-shows").empty();
+  console.log("??")
+  settledShowList.forEach(function(show) {
+    $("#all-shows").append(
+      '<div class="show-list">' +
+      '<b>' + show.ShowDate + '</b><br>' +
+      show.BandList + ' ' +
+      show.ShowType + ', ' +
+      show.BandSplit + ', ' +
+      show.showIncomeTotal +
+      '</div>'
+    );
+  });
+}
+// end of display shows
 });

@@ -19,10 +19,15 @@ h3 {
 .band-list {
   border-bottom: solid 1px #00FFFF;
   padding-bottom: 6px;
-  margin-bottom: 12px;
+
 }
 #band-contact label {
   width: 35%;
   margin: 12px;
 }
 
+.show-list {
+  border-bottom: solid 1px #00FFFF;
+  padding-bottom: 6px;
+
+}
