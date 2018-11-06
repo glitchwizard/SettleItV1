@@ -43,7 +43,7 @@ var addBandToShow = function(band, date) {
 
 }
 
-//var totalNumberOfBandsInAddressBook = 0;
+var totalNumberOfBandsInAddressBook = 0;
 
 //UI Logic
 $("Document").ready(function() {
@@ -99,24 +99,23 @@ $("Document").ready(function() {
     var showSplit = $("input#split").val();
     addShow(showDateInput);
     displayShows();
-
-    // same plan for making shows appear:
+  });
 
     var displayShows = function() {
       $("#all-shows").empty();
-      console.log("??")
+      console.log("??");
       settledShowList.forEach(function(show) {
         $("#all-shows").append(
-          '<div class="show-list">' +
-          '<b>' + show.ShowDate + '</b><br>' +
+          '<div>' + '<span id="all-shows">' +
+          '<br>' + show.ShowDate + '<br>' +
           show.BandList + ' ' +
           show.ShowType + ', ' +
           show.BandSplit + ', ' +
           show.showIncomeTotal +
+          '</span>' +
           '</div>'
         );
       });
-    }
-    // end of display shows
-  });
+    };
+
 });
