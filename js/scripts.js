@@ -65,7 +65,7 @@ $("Document").ready(function() {
     var totalNumberOfBandsInAddressBook = 0;
 
     bands.forEach(function(band) {
-      totalNumberOfBandsInAddressBook++;
+
       $("#all-bands").append(
         '<div class="band-list">' + "<div class='row'>" + "<div class='col.md-2'>" +
         "<input type='checkbox' class='BandContactCheckbox' id='" +
@@ -77,18 +77,22 @@ $("Document").ready(function() {
         band.BandPhone +
         '</div>' + '</div>' + '</div>'
       );
-
+      totalNumberOfBandsInAddressBook++;
     });
   }
 
   $('form#all-bands-form').click(function(event) { // this function will display the bands in the "Bands to Add" section dynamically with the checkboxes turned on or off
     $('span#bandListForShow').empty()
-    $("input:checkbox[class=BandContactCheckbox]:checked" && "input:checkbox[class=BandContactCheckbox]:checked").each(function(band) {
-      var bandID = parseInt($("input:checkbox[class=BandContactCheckbox]:checked").attr('id')) - 1;
+    var bandID;
+    $("input:checkbox[class=BandContactCheckbox]:checked").each(function() {
+      bandID = $("input:checkbox[class=BandContactCheckbox]:checked").attr('id');
+      console.log("");
       console.log("this is the bandID: " + bandID);
-      console.log(bands[0].bandName);
-      $('span#bandListForShow').append('<li>' + this.bandName + '</li>');
+      console.log(bands[bandID].BandName);
+      console.log("-----");
+      $('span#bandListForShow').append('<li>' + bands[bandID].BandName + '</li>');
     });
+    //debugger;
   });
 
   $("form#show-info").submit(function(event) {
