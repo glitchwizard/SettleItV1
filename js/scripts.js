@@ -31,7 +31,7 @@ var addShow = function(date) {
   return settledShowList.push(newShow);
 }; // this function will add new shows to the settled show list
 
-Show.prototype.NewShow = function() {
+Show.prototype.NewShow = function () {
   // this will update a show that's been created
   return console.log("New Show prototype worked.");
 
@@ -39,15 +39,15 @@ Show.prototype.NewShow = function() {
 
 
 
-var addBandToShow = function(band, date) {
+var addBandToShow = function (band, date) {
 
 }
 
 //var totalNumberOfBandsInAddressBook = 0;
 
 //UI Logic
-$("Document").ready(function() {
-  $("form#band-contact").submit(function(event) {
+$("Document").ready(function () {
+  $("form#band-contact").submit(function (event) {
     event.preventDefault();
     var bandNameInput = $("input#new-band").val();
     var firstNameInput = $("input#contact-firstName").val();
@@ -60,10 +60,11 @@ $("Document").ready(function() {
 
   });
 
-  var showBands = function() { // this function will add the bands to the DOM
+  var showBands = function () { // this function will add the bands to the DOM
     $("#all-bands").empty();
     var totalNumberOfBandsInAddressBook = 0;
 
+<<<<<<< HEAD
     bands.forEach(function(band) {
         totalNumberOfBandsInAddressBook++;
         $("#all-bands").append(
@@ -88,6 +89,43 @@ $('form#all-bands-form').click(function(event) { // this function will display t
     debugger;
     var bandID = $("input:checkbox[class=BandContactCheckbox]:checked").getAttribute('id').val();
     $('span#bandListForShow').text('<li>' + bands[bandID].bandName + ' test1' + '</li>')
+=======
+    bands.forEach(function (band) {
+      totalNumberOfBandsInAddressBook++;
+      $("#all-bands").append(
+        '<div class="band-list">' + "<div class='row'>" + "<div class='col.md-2'>" +
+        "<input type='checkbox' class='BandContactCheckbox' id='" +
+        totalNumberOfBandsInAddressBook + "'></input></div>" +
+        '<div class="col-md-10"><b>' + band.BandName + '</b><br>' +
+        band.BandMainContactFirstName + ' ' +
+        band.BandMainContactLastName + ', ' +
+        band.BandEmail + ', ' +
+        band.BandPhone +
+        '</div>' + '</div>' + '</div>'
+      );
+
+    });
+  }
+
+  $('form#all-bands-form').click(function (event) { // this function will display the bands in the "Bands to Add" section dynamically with the checkboxes turned on or off
+    $('span#bandListForShow').empty()
+    $("input:checkbox[class=BandContactCheckbox]:checked" && "input:checkbox[class=BandContactCheckbox]:checked").each(function (band) {
+      var bandID = parseInt($("input:checkbox[class=BandContactCheckbox]:checked").attr('id')) - 1;
+      console.log("this is the bandID: " + bandID);
+      console.log(bands[bandID].bandName);
+      $('span#bandListForShow').append('<li>' + bands[bandID].bandName + '</li>')
+      debugger;
+    });
+  });
+
+  $("form#show-info").submit(function (event) {
+    event.preventDefault();
+    var showDateInput = $("input#show-date").val();
+    var showBandList = $("input#bandListForShow").val();
+    var showType = $("input#show-type").val();
+    var showSplit = $("input#split").val();
+    addShow(showDateInput);
+    // shall i add bandlist, type, split?
   });
 });
 
