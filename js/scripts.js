@@ -83,15 +83,16 @@ $("Document").ready(function() {
 
   $('form#all-bands-form').click(function(event) { // this function will display the bands in the "Bands to Add" section dynamically with the checkboxes turned on or off
     $('span#bandListForShow').empty()
+
     var bandID;
-    $("input:checkbox[class=BandContactCheckbox]:checked").each(function() {
-      bandID = $(this).attr('id');
-      $('span#bandListForShow').append('<li>' + bands[bandID].BandName + '</li>');
+
+    $("input:checkbox[class=BandContactCheckbox]:checked").each(function(index) {
+      bandID = parseInt($(this).attr('id'));
+      $('span#bandListForShow').append('<li>' + bands[bandID].BandName + " <label for='new-band'> Amount: </label > <input type='text' class='bandSettleAmount' id='" + bandID + "'>" + '</li>');
     });
-    //debugger;
   });
 
-  $("form#show-info").submit(function(event) {
+  $("form#show-info").submit(function(event) { // this function will add a show to the array and DOM
     event.preventDefault();
     var showDateInput = $("input#show-date").val();
     var showBandList = $("input#bandListForShow").val();
