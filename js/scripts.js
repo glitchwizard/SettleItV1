@@ -85,11 +85,7 @@ $("Document").ready(function() {
     $('span#bandListForShow').empty()
     var bandID;
     $("input:checkbox[class=BandContactCheckbox]:checked").each(function() {
-      bandID = $("input:checkbox[class=BandContactCheckbox]:checked").attr('id');
-      console.log("");
-      console.log("this is the bandID: " + bandID);
-      console.log(bands[bandID].BandName);
-      console.log("-----");
+      bandID = $(this).attr('id');
       $('span#bandListForShow').append('<li>' + bands[bandID].BandName + '</li>');
     });
     //debugger;
