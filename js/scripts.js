@@ -102,11 +102,11 @@ $("Document").ready(function () {
       settledShowList[totalNumberOfShows].BandList.push(parseInt($(this).attr('id')));
     });
 
+    settledShowList[totalNumberOfShows].ShowType = showType;
+
     displayShows();
     totalNumberOfShows++;  
   });
-
-
 
   var displayShows = function () {
     $("#all-shows").empty();
