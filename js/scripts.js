@@ -21,17 +21,17 @@ function Show(showDate) {
 var settledShowList = []; // this is the list of shows that have been settled, each item in the array should be a Show object.
 var bands = []; // This is the overall list of bands that have been entered.
 
-var addBand = function(addBandName, addMainContactFirstName, addMainContactLastName, addEmail, addPhone) {
+var addBand = function (addBandName, addMainContactFirstName, addMainContactLastName, addEmail, addPhone) {
   var newBand = new Band(addBandName, addMainContactFirstName, addMainContactLastName, addEmail, addPhone);
   return bands.push(newBand);
 }; // this function will add new bands to the bands list
 
-var addShow = function(date) {
+var addShow = function (date) {
   var newShow = new Show(date)
   return settledShowList.push(newShow);
 }; // this function will add new shows to the settled show list
 
-Show.prototype.NewShow = function() {
+Show.prototype.NewShow = function () {
   // this will update a show that's been created
   return console.log("New Show prototype worked.");
 
@@ -39,15 +39,16 @@ Show.prototype.NewShow = function() {
 
 
 
-var addBandToShow = function(band, date) {
+var addBandToShow = function (band, date) {
 
 }
 
 var totalNumberOfBandsInAddressBook = 0;
+var totalNumberOfShows = 0;
 
 //UI Logic
-$("Document").ready(function() {
-  $("form#band-contact").submit(function(event) {
+$("Document").ready(function () {
+  $("form#band-contact").submit(function (event) {
     event.preventDefault();
     var bandNameInput = $("input#new-band").val();
     var firstNameInput = $("input#contact-firstName").val();
@@ -60,12 +61,11 @@ $("Document").ready(function() {
 
   });
 
-  var showBands = function() { // this function will add the bands to the DOM
+  var showBands = function () { // this function will add the bands to the DOM
     $("#all-bands").empty();
     var totalNumberOfBandsInAddressBook = 0;
 
-    bands.forEach(function(band) {
-
+    bands.forEach(function (band) {
       $("#all-bands").append(
         '<div class="band-list">' + "<div class='row'>" + "<div class='col.md-2'>" +
         "<input type='checkbox' class='BandContactCheckbox' id='" +
@@ -81,42 +81,46 @@ $("Document").ready(function() {
     });
   }
 
-  $('form#all-bands-form').click(function(event) { // this function will display the bands in the "Bands to Add" section dynamically with the checkboxes turned on or off
+  $('form#all-bands-form').click(function (event) { // this function will display the bands in the "Bands to Add" section dynamically with the checkboxes turned on or off
     $('span#bandListForShow').empty()
 
     var bandID;
 
-    $("input:checkbox[class=BandContactCheckbox]:checked").each(function(index) {
+    $("input:checkbox[class=BandContactCheckbox]:checked").each(function (index) {
       bandID = parseInt($(this).attr('id'));
-      $('span#bandListForShow').append('<li>' + bands[bandID].BandName + " <label for='new-band'> Amount: </label > <input type='text' class='bandSettleAmount' id='" + bandID + "'>" + '</li>');
+      $('span#bandListForShow').append('<li>' + bands[bandID].BandName + " <label for='new-band'> - Amount: </label > <input type='text' class='bandSettleAmount' id='" + bandID + "'>" + '</li>');
     });
   });
 
-  $("form#show-info").submit(function(event) { // this function will add a show to the array and DOM
+  $("form#show-info").submit(function (event) { // this function will add a show to the array and DOM
     event.preventDefault();
     var showDateInput = $("input#show-date").val();
-    var showBandList = $("input#bandListForShow").val();
     var showType = $("input#show-type").val();
-    var showSplit = $("input#split").val();
+    // var showSplit = $("input#split").val();
     addShow(showDateInput);
+    $("input:checkbox[class=BandContactCheckbox]:checked").each(function () {
+      settledShowList[totalNumberOfShows].BandList.push(parseInt($(this).attr('id')));
+    });
+
     displayShows();
+    totalNumberOfShows++;  
   });
 
-    var displayShows = function() {
-      $("#all-shows").empty();
-      console.log("??");
-      settledShowList.forEach(function(show) {
-        $("#all-shows").append(
-          '<div>' + '<span id="all-shows">' +
-          '<br>' + show.ShowDate + '<br>' +
-          show.BandList + ' ' +
-          show.ShowType + ', ' +
-          show.BandSplit + ', ' +
-          show.showIncomeTotal +
-          '</span>' +
-          '</div>'
-        );
-      });
-    };
 
+
+  var displayShows = function () {
+    $("#all-shows").empty();
+    settledShowList.forEach(function (show) {
+      $("#all-shows").append(
+        '<div>' + '<span id="all-shows">' +
+        '<br>' + show.ShowDate + '<--test <br>' +
+        show.BandList + ' ' +
+        show.ShowType + ', ' +
+        show.BandSplit + ', ' +
+        show.showIncomeTotal +
+        '</span>' +
+        '</div>'
+      );
+    });
+  };
 });
