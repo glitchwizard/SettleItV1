@@ -83,12 +83,10 @@ $("Document").ready(function () {
 
   $('form#all-bands-form').click(function (event) { // this function will display the bands in the "Bands to Add" section dynamically with the checkboxes turned on or off
     $('span#bandListForShow').empty()
-
     var bandID;
-
     $("input:checkbox[class=BandContactCheckbox]:checked").each(function (index) {
       bandID = parseInt($(this).attr('id'));
-      $('span#bandListForShow').append('<li>' + bands[bandID].BandName + " <label for='new-band'> - Amount: </label > <input type='text' class='bandSettleAmount' id='" + bandID + "'>" + '</li>');
+      $('span#bandListForShow').append('<li>' + bands[bandID].BandName + " <label for='new-band'> - Amount: </label > <input type='number' class='bandSettleAmount' id='" + bandID + "'>" + '</li>');
     });
   });
 
@@ -96,13 +94,20 @@ $("Document").ready(function () {
     event.preventDefault();
     var showDateInput = $("input#show-date").val();
     var showType = $("input#show-type").val();
-    // var showSplit = $("input#split").val();
+
     addShow(showDateInput);
-    $("input:checkbox[class=BandContactCheckbox]:checked").each(function () {
+
+    $("input:checkbox[class=BandContactCheckbox]:checked").each(function () { // this function adds the bands to the Show object
       settledShowList[totalNumberOfShows].BandList.push(parseInt($(this).attr('id')));
     });
 
+    $("input.bandSettleAmount").each(function () {
+      settledShowList[totalNumberOfShows].BandSplit.push($(this).val());
+    });
+
     settledShowList[totalNumberOfShows].ShowType = showType;
+
+
 
     displayShows();
     totalNumberOfShows++;  
@@ -113,8 +118,8 @@ $("Document").ready(function () {
     settledShowList.forEach(function (show) {
       $("#all-shows").append(
         '<div>' + '<span id="all-shows">' +
-        '<br>' + show.ShowDate + '<--test <br>' +
-        show.BandList + ' ' +
+        '<br>' + show.ShowDate + '</br><br>' +
+        forEach(show.BandList){bands[$(this])} + ' ' +
         show.ShowType + ', ' +
         show.BandSplit + ', ' +
         show.showIncomeTotal +
